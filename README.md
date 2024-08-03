@@ -76,11 +76,16 @@ Make sure you have the following installed on your machine:
 
 ### Running the Backend
 
-1. Navigate to the server directory
+1. Clone the repository
+
+   git clone https://github.com/alexyocruz1/chat-app-server.git
+   cd chat-app-server
+
+2. Navigate to the server directory
 
    cd server
 
-2. Start the Node.js server
+3. Start the Node.js server
 
    node server.js
 
