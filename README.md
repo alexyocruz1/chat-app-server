@@ -1,6 +1,6 @@
 # Chat Application
 
-This is a full-stack chat application with a React frontend and a Node.js backend. The frontend is deployed on GitHub Pages, and the backend is deployed on Render. MongoDB Atlas is used as the database.
+This is a full-stack chat application with a React frontend and a Node.js backend. The frontend is deployed on GitHub Pages, and the backend is deployed on Render. MongoDB Atlas is used as the database. Database content is removed every 24 hours
 
 ## Table of Contents
 
