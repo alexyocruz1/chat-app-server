@@ -59,10 +59,10 @@ async function run() {
     io.on('connection', (socket) => {
       console.log('New client connected');
 
-      socket.on('sendMessage', async (text) => {
-        const message = new Message({ text });
+      socket.on('sendMessage', async ({ text, username, color }) => {
+        const message = new Message({ text, username, color });
         await message.save();
-        io.emit('message', text);
+        io.emit('message', { text, username, color });
       });
 
       socket.on('disconnect', () => {
@@ -75,8 +75,8 @@ async function run() {
   } catch (error) {
     console.error("Error during startup:", error);
   } finally {
-    // Ensure client closure
-    // await client.close(); // Uncomment this if you need to close the client connection
+    // Ensure client closure if needed
+    // await client.close(); // Uncomment this if you need to close the client connection explicitly
   }
 }
 
