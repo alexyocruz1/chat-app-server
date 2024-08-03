@@ -1,5 +1,3 @@
-// server.js
-
 const express = require('express');
 const http = require('http');
 const socketIo = require('socket.io');
@@ -10,9 +8,15 @@ const messageRoutes = require('./routes/messages');
 
 const app = express();
 const server = http.createServer(app);
-const io = socketIo(server);
+const io = socketIo(server, {
+  cors: {
+    origin: 'https://alexyocruz1.github.io', // Replace with your client’s origin
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type'],
+  },
+});
 
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
+// MongoDB connection code
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const client = new MongoClient(process.env.MONGODB_URI, {
   serverApi: {
@@ -42,7 +46,13 @@ async function run() {
     });
     console.log("Connected to MongoDB using Mongoose!");
 
-    app.use(cors());
+    // Enable CORS for Express
+    app.use(cors({
+      origin: 'https://alexyocruz1.github.io', // Replace with your client’s origin
+      methods: ['GET', 'POST'],
+      allowedHeaders: ['Content-Type'],
+    }));
+
     app.use(express.json());
     app.use('/api/messages', messageRoutes);
 
@@ -65,8 +75,8 @@ async function run() {
   } catch (error) {
     console.error("Error during startup:", error);
   } finally {
-    // Ensures that the client will close when you finish/error
-    // await client.close(); // Comment this out to keep the connection open
+    // Ensure client closure
+    // await client.close(); // Uncomment this if you need to close the client connection
   }
 }
 
