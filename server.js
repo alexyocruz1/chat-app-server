@@ -34,6 +34,10 @@ async function run() {
     mongoose.connect(mongoDBeUri, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
+      ssl: true,
+      sslValidate: true,
+      tlsAllowInvalidCertificates: false,
+      tlsAllowInvalidHostnames: false,
     });
 
     app.use(cors());
