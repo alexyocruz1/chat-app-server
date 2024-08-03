@@ -26,7 +26,7 @@ This is a full-stack chat application with a React frontend and a Node.js backen
 
 ## Demo
 
-You can view the live demo of the frontend here: https://your-username.github.io/your-repo-name
+You can view the live demo of the frontend here: https://alexyocruz1.github.io/chat-app-client
 
 ## Technologies Used
 
@@ -49,8 +49,8 @@ Make sure you have the following installed on your machine:
 
 1. Clone the repository
 
-   git clone https://github.com/your-username/your-repo-name.git
-   cd your-repo-name
+   git clone https://github.com/alexyocruz1/chat-app-client.git
+   cd chat-app-client
 
 2. Install dependencies for the frontend
 
@@ -109,7 +109,7 @@ PORT=5000
 
    Add the following properties to your package.json file in the client directory:
 
-   "homepage": "https://your-username.github.io/your-repo-name",
+   "homepage": "https://alexyocruz1.github.io/chat-app-client",
    "scripts": {
      "predeploy": "npm run build",
      "deploy": "gh-pages -d build"
@@ -120,6 +120,9 @@ PORT=5000
    npm run deploy
 
 ### Deploying Backend
+
+Repository can be found on: 
+   git clone https://github.com/alexyocruz1/chat-app-server.git
 
 1. Create a Render Account
 
@@ -151,5 +154,3 @@ PORT=5000
 ## License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
-
-Replace placeholders like `your-username`, `your-repo-name`, and `your-mongodb-atlas-connection-string` with your actual GitHub username, repository name, and MongoDB Atlas connection string, respectively.
