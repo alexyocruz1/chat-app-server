@@ -19,7 +19,12 @@ const client = new MongoClient(process.env.MONGODB_URI, {
     version: ServerApiVersion.v1,
     strict: true,
     deprecationErrors: true,
-  }
+  },
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  ssl: true,
+  tlsAllowInvalidCertificates: false,
+  tlsAllowInvalidHostnames: false,
 });
 
 async function run() {
@@ -32,12 +37,10 @@ async function run() {
     console.log("Pinged your deployment. You successfully connected to MongoDB!");
 
     // Connect to MongoDB using Mongoose
-    console.log("Connecting to MongoDB using Mongoose...");
     await mongoose.connect(process.env.MONGODB_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       ssl: true,
-      sslValidate: true,
       tlsAllowInvalidCertificates: false,
       tlsAllowInvalidHostnames: false,
     });
