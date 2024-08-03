@@ -20,8 +20,6 @@ const client = new MongoClient(process.env.MONGODB_URI, {
     strict: true,
     deprecationErrors: true,
   },
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
   ssl: true,
   tlsAllowInvalidCertificates: false,
   tlsAllowInvalidHostnames: false,
@@ -38,8 +36,6 @@ async function run() {
 
     // Connect to MongoDB using Mongoose
     await mongoose.connect(process.env.MONGODB_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
       ssl: true,
       tlsAllowInvalidCertificates: false,
       tlsAllowInvalidHostnames: false,
