@@ -32,7 +32,17 @@ const createMessage = async (req, res) => {
   }
 };
 
+const deleteAllMessages = async (req, res) => {
+  try {
+    await Message.deleteMany({});
+    res.status(200).json({ message: 'All messages have been deleted' });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 module.exports = {
   getMessages,
   createMessage,
+  deleteAllMessages,
 };

@@ -10,8 +10,8 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIo(server, {
   cors: {
-    origin: 'https://alexyocruz1.github.io', // Replace with your client’s origin
-    methods: ['GET', 'POST'],
+    origin: '*', // Allow requests from any origin
+    methods: ['GET', 'POST', 'DELETE'], // Add 'DELETE' method if you want to allow it
     allowedHeaders: ['Content-Type'],
   },
 });
@@ -48,8 +48,8 @@ async function run() {
 
     // Enable CORS for Express
     app.use(cors({
-      origin: 'https://alexyocruz1.github.io', // Replace with your client’s origin
-      methods: ['GET', 'POST'],
+      origin: '*', // Allow requests from any origin
+      methods: ['GET', 'POST', 'DELETE'], // Add 'DELETE' method if you want to allow it
       allowedHeaders: ['Content-Type'],
     }));
 
